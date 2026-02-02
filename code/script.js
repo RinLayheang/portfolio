@@ -142,3 +142,33 @@ window.addEventListener('scroll', () => {
         section.style.backgroundPosition = `center ${rate}px`;
     });
 });
+
+// Skills Grid Auto-Scroll Animation (Continuous Loop)
+const skillsGrid = document.querySelector('.skills-grid');
+
+if (skillsGrid) {
+    let scrollPosition = 0;
+    const scrollSpeed = 1;
+    const skillCardWidth = 220 + 32; // card width (220px) + gap (32px for 2rem)
+    const totalCards = skillsGrid.querySelectorAll('.skill-card').length;
+    const totalScrollWidth = skillCardWidth * totalCards;
+
+    function autoScroll() {
+        scrollPosition += scrollSpeed;
+        skillsGrid.scrollLeft = scrollPosition % totalScrollWidth;
+        requestAnimationFrame(autoScroll);
+    }
+
+    // Start auto-scroll animation
+    autoScroll();
+
+    // Pause animation on hover
+    skillsGrid.addEventListener('mouseenter', () => {
+        skillsGrid.style.opacity = '0.9';
+    });
+
+    // Resume animation on mouse leave
+    skillsGrid.addEventListener('mouseleave', () => {
+        skillsGrid.style.opacity = '1';
+    });
+}
