@@ -254,34 +254,34 @@ body {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
-/* Skills Section */
-.skills {
+/* Skills / Data Science Section */
+.skills,
+.data-science {
     padding: 100px 0;
     background: var(--white);
 }
 
 .skills-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 2rem;
-    overflow-x: auto;
-    padding: 2rem;
-    scroll-behavior: smooth;
-    align-items: center;
+    padding: 0;
+    align-items: stretch;
 }
 
 .skill-card {
     background: rgba(255, 255, 255, 0.95);
-    padding: 2.5rem;
-    border-radius: 25px;
+    padding: 2rem 1.8rem;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
-    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.08);
+    transition: all 0.35s ease;
     border: 2px solid transparent;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     position: relative;
     overflow: hidden;
-    flex-shrink: 0;
-    width: 220px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .skill-card::before {
@@ -343,21 +343,19 @@ body {
 }
 
 .platform-card {
-    background: linear-gradient(135deg, #FF0050 0%, #FF6B9D 100%);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(255, 0, 80, 0.3);
     transition: all 0.3s ease;
     color: var(--white);
 }
 
 .platform-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 0, 80, 0.4);
 }
 
 .platform-image {
-    height: 200px;
+    width:50%;
+    margin: auto;
     overflow: hidden;
 }
 
@@ -466,7 +464,7 @@ body {
     position: relative;
     height: 220px;
     overflow: hidden;
-    background: #000;
+    background: #ffffff;
 }
 
 .video-thumbnail img {
@@ -540,7 +538,7 @@ body {
 /* Projects Section */
 .projects {
     padding: 100px 0;
-    background: var(--purple-gradient);
+    background: var(--white);
 }
 
 .projects-grid {
@@ -564,15 +562,25 @@ body {
 }
 
 .project-image {
-    height: 200px;
+    height: auto;
     overflow: hidden;
+    background: #ffffff;
 }
 
 .project-image img {
     width: 100%;
-    height: 100%;
+    height: 420px;
     object-fit: cover;
     transition: transform 0.3s ease;
+}
+
+/* Full-size embed support for TikTok blockquotes and iframes (Facebook) */
+.project-image blockquote.tiktok-embed,
+.project-image iframe {
+    width: 100%;
+    height: 420px;
+    display: block;
+    border: none;
 }
 
 .project-card:hover .project-image img {
@@ -937,6 +945,15 @@ body {
 
     .section-title {
         font-size: 1.8rem;
+    }
+
+    .project-image img {
+        height: 320px;
+    }
+
+    .project-image blockquote.tiktok-embed,
+    .project-image iframe {
+        height: 320px;
     }
 }
 
